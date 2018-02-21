@@ -11,6 +11,11 @@ var db = require("./models");
 var app = express();
 var PORT = process.env.PORT || 8080;
 
+// app.get('/', function(req, res) {
+//     res.redirect('/signin');
+// });
+
+
 // Sets up the Express app to handle data parsing
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -25,8 +30,8 @@ app.set("view engine", "handlebars");
 
 // Routes
 // =============================================================
-// var routes = require("./controllers/friend_controller.js");
-// app.use("/", routes);
+var routes = require("./controllers/friend_controller.js");
+app.use("/", routes);
 
 
 // Starts the server to begin listening
